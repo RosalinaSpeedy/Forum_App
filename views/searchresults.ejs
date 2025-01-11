@@ -1,0 +1,40 @@
+<!-- Ben Craddock - 33733570 - bcrad001@campus.goldsmiths.ac.uk -->
+
+<!doctype html>
+<html>
+  <head>
+    <!-- dynamic shop name -->
+    <title><%=forumName%> search results</title>
+    <link rel="stylesheet"  type="text/css" href="/main.css" />
+  </head>
+  <body>
+    <!-- Display username if a user is logged in -->
+    <% try { %>
+      <% if (userDetails.loggedin) { %>
+        <h1>Current user: <%=userDetails.userName%>
+        </h1>
+        <p><a href="logout">Log out</a></p>
+        <% } else { %>
+          <p><a href="login">Log in</a></p>
+          <% } %>
+      <% } catch{} %>
+    <h1><%=forumName%> search results</h1>
+    <h2>Here are the results for the search: <%=searchQuery%></h2>
+    <ul>
+        <!-- if there are search results - loop through and display as UL li elements-->
+        <% if (searchResults.length > 0) { %>
+            <% for(let i=0; i < searchResults.length; i++) { %>
+                <li>
+                    <%= "TOPIC: " + searchResults[i].topicName + ", USERNAME: " + searchResults[i].userName %>
+                    <li>
+                      <%= searchResults[i].content %>
+                    </li>
+                </li>
+            <% } %>
+        <!-- display a text prompt accordingly if not-->
+        <% } else { %>
+            <h2>NO SEARCH RESULTS FOUND</h2>
+        <% } %>
+    </ul>
+  </body>
+</html>

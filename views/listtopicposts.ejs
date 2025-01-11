@@ -1,0 +1,45 @@
+<!-- Ben Craddock - 33733570 - bcrad001@campus.goldsmiths.ac.uk -->
+
+<!doctype html>
+<html>
+
+<head>
+  <!-- dynamic forum name -->
+  <title>Welcome to </title>
+  <link rel="stylesheet" type="text/css" href="/main.css" />
+</head>
+
+<body>
+  <!-- Display username if a user is logged in -->
+  <% try { %>
+    <% if (userDetails.loggedin) { %>
+      <h1>Current user: <%=userDetails.userName%>
+      </h1>
+      <p><a href="logout">Log out</a></p>
+      <% } else { %>
+        <p><a href="login">Log in</a></p>
+        <% } %>
+    <% } catch{} %>
+  <h2>Post added:</h2>
+  <ul>
+    <!-- display all posts in the topic that was just posted in: -->
+    <% var currentTopic="" %>
+      <% for(let i=0; i < posts.length; i++) { %>
+        <% if (currentTopic !==posts[i].topicName){ %>
+          <li>
+            <%= "Posts added to topic:" + posts[i].topicName %>
+          </li>
+          <% } %>
+            <% currentTopic=posts[i].topicName %>
+              <% console.log(currentTopic); %>
+                <li>
+                  <%= posts[i].userName + " said:" %>
+                    <br>
+                    <%= posts[i].content %>
+                </li>
+                </li>
+                <% } %>
+  </ul>
+</body>
+
+</html>

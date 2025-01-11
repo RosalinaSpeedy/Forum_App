@@ -1,0 +1,25 @@
+<!-- Ben Craddock - 33733570 - bcrad001@campus.goldsmiths.ac.uk -->
+
+<!doctype html>
+<html>
+  <head>
+    <!-- dynamic shop title -->
+    <title>About <%=forumName%></title>
+    <link rel="stylesheet"  type="text/css" href="/main.css" />
+  </head>
+  <body>
+    <% try { %>
+      <% if (userDetails.loggedin) { %>
+        <h1>Welcome back to <%=forumName%>, <%=userDetails.userName%>
+        </h1>
+        <p><a href="logout">Log out</a></p>
+        <% } else { %>
+          <h1>Welcome to <%=forumName%>
+          </h1>
+          <p><a href="login">Log in</a></p>
+          <% } %>
+      <% } catch{} %>
+    <h1>About <%=forumName%></h1>
+    <p>We are an epic forum - the posts here are good for reading and stuff!</p>
+  </body>
+</html>

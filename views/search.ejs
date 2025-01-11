@@ -1,0 +1,29 @@
+<!-- Ben Craddock - 33733570 - bcrad001@campus.goldsmiths.ac.uk -->
+
+<!doctype html>
+<html>
+  <head>
+    <!-- dynamic forum name -->
+    <title>Search <%=forumName%></title>
+    <link rel="stylesheet"  type="text/css" href="/main.css" />
+  </head>
+  <body>
+    <!-- Display username if a user is logged in -->
+    <% try { %>
+      <% if (userDetails.loggedin) { %>
+        <h1>Current user: <%=userDetails.userName%>
+        </h1>
+        <p><a href="logout">Log out</a></p>
+        <% } else { %>
+          <p><a href="login">Log in</a></p>
+          <% } %>
+      <% } catch{} %>
+    <h1>Search <%=forumName%> for posts</h1>
+    <!-- search form: redirects to /search-result -->
+    <form action="/search-result" method="GET">
+      <p>What kind of post do you want?</p>
+      <input id="search-box" type="text" name="keyword" value="Default">
+      <input type="submit" value="Search" >
+    </form>
+  </body>
+</html>

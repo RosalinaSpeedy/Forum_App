@@ -1,0 +1,26 @@
+<!-- Ben Craddock - 33733570 - bcrad001@campus.goldsmiths.ac.uk -->
+
+<!doctype html>
+<html>
+
+<head>
+  <!-- dynamic forum name -->
+  <title>Register for <%=forumName%>
+  </title>
+  <link rel="stylesheet" type="text/css" href="/main.css" />
+</head>
+
+<body>
+  <h1>Register for <%=forumName%>
+  </h1>
+  <!-- register form - redirects to /registered -->
+  <form method="POST" action="/registered">
+    <label for="username"></label>
+    <input type="text" name="userName" placeholder="Username" id="userName" required>
+    <label for="password"></label>
+    <input type="password" name="password" placeholder="Password" id="password" required>
+    <input type="submit" value="Register" />
+  </form>
+</body>
+
+</html>

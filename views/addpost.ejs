@@ -1,0 +1,45 @@
+<!-- Ben Craddock - 33733570 - bcrad001@campus.goldsmiths.ac.uk -->
+
+<!doctype html>
+<html>
+
+<head>
+  <!-- dynamic shop name -->
+  <title>Add new post to <%=forumName%>
+  </title>
+  <link rel="stylesheet" type="text/css" href="/main.css" />
+</head>
+
+<body>
+  <% try { %>
+    <% if (userDetails.loggedin) { %>
+      <!-- Display username if a user is logged in -->
+      <h1>Current user: <%=userDetails.userName%>
+      </h1>
+      <p><a href="logout">Log out</a></p>
+      <h1>
+        <%=forumName%>: Add post
+      </h1>
+      <!-- redirect to /listtopicposts -->
+      <form method="POST" action="/listtopicposts">
+        <p>Topic:
+          <!-- populate drop down menu with all topics -->
+          <select name="topic" id="topic" required>
+            <% for (let i = 0; i < topicList.length; i++){ %>
+              <option value="<%= topicList[i] %>""><%=topicList[i]%></option>
+              <%}%>
+          </select>
+        </p>
+        <!-- content text area -->
+        <p>Post content: <textarea id="content" type="text" name="content" value="Enter post text here"></textarea></p>
+        <input type="submit" value="Add Post" />
+      </form>
+      <% } else { %>
+        <p><a href="login">Log in</a></p>
+        <p>PLEASE LOG IN FIRST BEFORE ADDING POSTS!</p>
+        <% } %>
+    <% } catch{} %>
+  
+</body>
+
+</html>

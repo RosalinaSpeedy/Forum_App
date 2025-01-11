@@ -1,0 +1,32 @@
+<!-- Ben Craddock - 33733570 - bcrad001@campus.goldsmiths.ac.uk -->
+
+<!doctype html>
+<html>
+  <head>
+    <!-- dynamic forum name -->
+    <title>Welcome to <%=forumName%></title>
+    <link rel="stylesheet"  type="text/css" href="/main.css" />
+  </head>
+  <body>
+    <!-- Display username if a user is logged in -->
+    <% try { %>
+      <% if (userDetails.loggedin) { %>
+        <h1>Current user: <%=userDetails.userName%>
+        </h1>
+        <p><a href="logout">Log out</a></p>
+        <% } else { %>
+          <p><a href="login">Log in</a></p>
+          <% } %>
+      <% } catch{} %>
+    <h1><%=forumName%></h1>
+    <h2>Here are the Current active users:</h2>
+    <ul>
+      <!-- list all users -->
+        <% for(let i=0; i < users.length; i++) { %>
+            <li>
+                <%= users[i].userName%>
+            </li>
+            <% } %>
+    </ul>
+  </body>
+</html>
