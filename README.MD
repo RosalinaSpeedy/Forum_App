@@ -1,3 +1,5 @@
+This was my first Node and EJS project for the main submission of Dynamic Web Applications.
+
 Make sure you register and log into an account, otherwise you won't be able to make posts!
 
 If you haven't joined a topic - you won't be able to post in it.
@@ -10,4 +12,4 @@ body-parser
 express-session
 mysql
 
-Ben Craddock - 33733570
+Ben Craddock
